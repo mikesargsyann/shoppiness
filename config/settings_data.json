@@ -151,13 +151,67 @@
       },
       "product-template": {
         "type": "product-template",
+        "blocks": {
+          "1522009843610": {
+            "type": "product",
+            "settings": {
+              "product_selected": "fly-cat",
+              "product_sticky_buyed_country": "LARGS NORTH, Australia",
+              "product_sticky_buyed_time": "13 MINUTES AGO"
+            }
+          },
+          "1522009866492": {
+            "type": "product",
+            "settings": {
+              "product_selected": "full-hd-mini-wireless-smart-camera",
+              "product_sticky_buyed_country": "BUENOS AIRES, Argentina",
+              "product_sticky_buyed_time": "2 HOURS AGO"
+            }
+          },
+          "1522009882803": {
+            "type": "product",
+            "settings": {
+              "product_selected": "womens-hot-sweat-body-shaper-tank-top-tummy-fat-burner-slimming-sauna-vest-weight-loss-shapewear-black-no-zip",
+              "product_sticky_buyed_country": "NEW YORK, USA",
+              "product_sticky_buyed_time": "48 MINUTES AGO"
+            }
+          },
+          "1522009905349": {
+            "type": "product",
+            "settings": {
+              "product_selected": "super-wide-angle-mobile-phone-lens",
+              "product_sticky_buyed_country": "GERMANY",
+              "product_sticky_buyed_time": "32 MINUTES AGO"
+            }
+          },
+          "1522009926535": {
+            "type": "product",
+            "settings": {
+              "product_selected": "lululion-waterproof-pu-coating-backpacking-tent-two-doors-double-layer-anti-uv-with-aluminum-rods-for-outdoor-camping-hunting-hiking-with-carry-bag-210x150x110cm",
+              "product_sticky_buyed_country": "PARIS, France",
+              "product_sticky_buyed_time": "3 HOURS AGO"
+            }
+          }
+        },
+        "block_order": [
+          "1522009843610",
+          "1522009866492",
+          "1522009882803",
+          "1522009905349",
+          "1522009926535"
+        ],
         "settings": {
           "image_size": "medium",
           "show_quantity_selector": true,
           "show_variant_labels": true,
           "show_vendor": false,
           "enable_zoom": true,
-          "show_share_buttons": true
+          "show_share_buttons": true,
+          "fixed_bar_footer": true,
+          "fixed_bar_footer_text": "Congratulations! You have got free shipping",
+          "fixed_bar_footer_background_color": "",
+          "fixed_bar_footer_font_color": "",
+          "product_sticky_buyed_iterator": "15000"
         }
       },
       "cart-template": {

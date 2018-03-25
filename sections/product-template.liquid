@@ -320,21 +320,27 @@
       </button>
     </form>
   </div>
-
-  {% for block in section.blocks %}
-  <div class="sticky-product-buyed">
-    {% assign product_item = all_products[block.settings.product_selected] %}
-    <p>
-      {% for image in product_item.images %}
-        <img src="{{ image.src | img_url }}">
-      {% endfor %}
-      <span>Someone from {{ block.settings.product_sticky_buyed_country }} recently pruchased <a href="{{ product_item.url }}" target="_blank">{{ product_item.title }}</a></span>
-      <span>{{ block.settings.product_sticky_buyed_time }}</span>
-      <input type="hidden" hidden value="{{ section.settings.product_sticky_buyed_iterator }}">
-    </p>
-  </div>
-  {% endfor %}
 </div>
+<div>
+{% for block in section.blocks %}
+<div class="sticky-product-buyed">
+  {% assign product_item = all_products[block.settings.product_selected] %}
+  <p>
+    {% for image in product_item.images %}
+      <img src="{{ image.src | img_url }}">
+    {% endfor %}
+    <span>Someone from {{ block.settings.product_sticky_buyed_country }} recently pruchased <a href="{{ product_item.url }}" target="_blank">{{ product_item.title }}</a></span>
+    <span>{{ block.settings.product_sticky_buyed_time }}</span>
+    <input type="hidden" hidden value="{{ section.settings.product_sticky_buyed_iterator }}">
+  </p>
+</div>
+{% endfor %}
+</div>
+{% if section.settings.fixed_bar_footer and section.settings.fixed_bar_footer_text != '' %}
+<div class="free-shippings-bar" style="background-color: {{ section.settings.fixed_bar_footer_background_color }};">
+  <p style="color: {{ section.settings.fixed_bar_footer_font_color }};">{{ section.settings.fixed_bar_footer_text }}</p>
+</div>
+{% endif %}
 
 {% if collection %}
   <div class="text-center return-link-wrapper">
@@ -353,7 +359,7 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-    if ($('.product-percentage-discount, .product-percentage-discount-mobile').length > 1) {
+    if ($('.product-percentage-discount, .product-percentage-discount-mobile').length > 0) {
       var originalPrice = {{ current_variant.compare_at_price }};
       var discountPrice = {{ current_variant.price }};
       var discountPercentage = Math.trunc((originalPrice - discountPrice) / originalPrice * 100);
@@ -365,28 +371,31 @@
   $(document).ready(function() {    
     if ($('.sticky-product-buyed').length > 0) {
       var iteratorTime = $('.sticky-product-buyed p input').val();
-      var randomStickyProduct = $('.sticky-product-buyed')[Math.floor(Math.random() * $('.sticky-product-buyed').length)];
-      $(randomStickyProduct).css('transform','translateY(0px)');
-      console.log(randomStickyProduct)
-      // switch(iteratorTime) {
-      //   case 15000:
-      //     break;
-      //   case 30000:
-      //     $()
-      //     break;
-      //   case 45000:
-      //     $()
-      //     break;
-      //   case 100000:
-      //     $()
-      //     break;
-      //   case 200000:
-      //     $()
-      //     break;
-      //   case 500000:
-      //     $()
-      //     break;
-      // }
+      var newRandomStickyProduct = Math.floor(Math.random() * $('.sticky-product-buyed').length);
+      var lastRandomStickyProduct;
+
+      setInterval(function() {
+        iterator();
+      }, iteratorTime);
+
+      function iterator() {
+        newRandomStickyProduct = Math.floor(Math.random() * $('.sticky-product-buyed').length);
+        lastRandomStickyProduct = newRandomStickyProduct;
+
+        if (lastRandomStickyProduct == newRandomStickyProduct) {
+          newRandomStickyProduct = Math.floor(Math.random() * $('.sticky-product-buyed').length);
+        }
+
+        $('.sticky-product-buyed').eq(newRandomStickyProduct).css({
+          transform: 'translateY(0px)'
+        });
+
+        setTimeout(function() {
+          $('.sticky-product-buyed').eq(newRandomStickyProduct).css({
+            transform: 'translateY(150px)'
+          });
+        }, 6500);
+      }
     }
   });
 </script>
@@ -394,7 +403,7 @@
 {% schema %}
   {
     "name": "Product pages",
-    "max_blocks": 6,
+    "max_blocks": 12,
     "settings": [
       {
         "type": "select",
@@ -449,6 +458,31 @@
         "id": "show_share_buttons",
         "label": "Show social sharing buttons",
         "default": true
+      },
+      {
+        "type": "header",
+        "content": "Fixed footer bar"
+      },
+      {
+        "type": "checkbox",
+        "id": "fixed_bar_footer",
+        "label": "Show fixed bar on footer",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "fixed_bar_footer_text",
+        "label": "Fixed bar text"
+      },
+      {
+        "type": "color",
+        "id": "fixed_bar_footer_background_color",
+        "label": "Fixed bar background color"
+      },
+      {
+        "type": "color",
+        "id": "fixed_bar_footer_font_color",
+        "label": "Fixed bar font color"
       },
       {
         "type": "header",
