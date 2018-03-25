@@ -1,0 +1,237 @@
+@media only screen and  (max-width: 767px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .hidden-desktop {
+    display: none !important;
+  }
+}
+
+// Product page
+.offers {
+  position: relative;
+}
+
+.product-single__price {
+  margin-bottom: 10px;
+}
+
+.product-price__price {
+  padding-left: 0;
+}
+
+.product-compare-price {
+  display: inline-block;
+}
+
+.product-percentage-discount {
+  display: inline-block;
+  margin: 0 0 0 7px;
+  font-size: 1.25rem;
+  color: {{ settings.color_product_page_percentage_discount }};
+}
+
+.sticky-footer {
+  position: fixed;
+  display: block;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 70px;
+  bottom: 0;
+  background-color: {{ settings.background_color_product_page_mobile_fixed_footer }};
+  padding: 10px 15px;
+  top: initial !important;
+  z-index: 1;
+  
+  p {
+    margin: 0;
+    color: white;
+    font-size: 1em;
+  }
+  
+  .product-price-mobile {
+  	display: block;
+    color: {{ settings.color_product_page_price_mobile_fixed_footer }};
+  }
+  
+  .product-compare-price-mobile {
+    display: inline-block;
+    color: {{ settings.color_product_page_compare_price_mobile_fixed_footer }};
+  }
+  
+  .product-percentage-discount-mobile {
+    display: inline-block;
+    color: {{ settings.color_product_page_percentage_price_mobile_fixed_footer }};
+  }
+  
+  form {
+   	display: block;
+    margin: auto 0 auto auto;
+    width: 45%;
+    height: calc(100% - 30px);
+    position: absolute;
+    top: 0;
+    right: 15px;
+    bottom: 0;
+    
+    button {
+      height: 100%;
+    }
+  }
+}
+
+.sticky-product-buyed {
+  padding: 0 20px 0 0;
+  background-color: white;
+  position: fixed;
+  font-size: 11px;
+  width: 100%;
+  height: 100%;
+  max-width: 350px;
+  max-height: 90px;
+  left: 15px;
+  bottom: 15px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  transition: all 0.7s ease;
+  transform: translateY(150px);
+
+  a {
+    color: blue;
+  }
+
+  p {
+    height: 100%;
+    display: inline-block;
+    margin: 0;
+    
+    img {
+      display: none;
+
+      &:first-child {
+        display: inline-block;
+        vertical-align: middle;
+        float: left;
+        margin-right: 10px;
+        width: 100px;
+        height: 100%;
+      }
+    }
+
+    span {
+      padding-top: 5px;
+      display: block;
+
+      &:last-of-type {
+        margin: 0;
+        display: block;
+        padding: 0;
+        font-size: 12px;
+        position: absolute;
+        bottom: 5px;
+        left: 110px;
+      }
+    }
+  }
+}
+
+.template-product {
+  @media only screen and (max-width: 767px) {
+    padding-bottom: 25px;
+  }
+}
+
+.disable-select {
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
+}
+
+.extra-descriptive-box {
+  border: 1px solid #E91E2E;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto 30px 0;
+  
+  > p {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 10px;
+    margin: 0;
+    background-color: #E91E2E;
+  }
+  
+  div {
+ 	padding: 5px 10px 10px 10px; 
+    font-size: 14px;
+  }
+}
+
+.spr-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 16px;
+  
+  @media only screen and (max-width: 767px) {
+    font-size: 12px;
+  }
+}
+
+.product-icons {
+  margin: 30px 0;
+
+  img {
+    display: block;
+    margin: auto;
+  }
+}
+
+.product-reviews-desktop {
+  @media only screen and (max-width: 767px) {
+    display: none !important;
+  }
+}
+
+.product-single__photos {
+  position: relative;
+}
+
+.thumbnails-wrapper {
+  position: absolute;
+  top: -30px;
+  transform: translateX(-150px);
+  
+  @media only screen and (max-width: 1400px) {
+  	transform: translateX(-80px);
+  }
+  
+   @media only screen and (max-width: 1250px) {
+     position: relative;
+     top: 0;
+     transform: none;
+  }
+  
+  ul.product-single__thumbnails {
+    
+    > li {
+      float: none;
+      width: 50%;
+      
+      @media only screen and (max-width: 1400px) {
+        width: 40%;
+      }
+      
+      @media only screen and (max-width: 1250px) {
+        float: right;
+        width: 25%;
+      }
+    }
+  }
+}
