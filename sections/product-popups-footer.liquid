@@ -1,0 +1,98 @@
+{% for block in section.blocks %}
+<div class="sticky-product-buyed">
+  {% assign product_item = all_products[block.settings.product_selected] %}
+  <p>
+    {% for image in product_item.images %}
+      <img src="{{ image.src | img_url }}">
+    {% endfor %}
+    <span>Someone from {{ block.settings.product_sticky_buyed_country }} recently purchased <a href="{{ product_item.url }}" target="_blank">{{ product_item.title }}</a></span>
+    <span>{{ block.settings.product_sticky_buyed_time }}</span>
+    <input type="hidden" hidden value="{{ section.settings.product_sticky_buyed_iterator }}">
+  </p>
+</div>
+{% endfor %}
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    if ($('.sticky-product-buyed').length > 0) {
+      var iteratorTime = $('.sticky-product-buyed p input').val();
+      var newRandomStickyProduct = Math.floor(Math.random() * $('.sticky-product-buyed').length);
+      var lastRandomStickyProduct;
+
+      setInterval(function() {
+        iterator();
+      }, iteratorTime);
+
+      function iterator() {
+        newRandomStickyProduct = Math.floor(Math.random() * $('.sticky-product-buyed').length);
+        lastRandomStickyProduct = newRandomStickyProduct;
+
+        if (lastRandomStickyProduct == newRandomStickyProduct) {
+          newRandomStickyProduct = Math.floor(Math.random() * $('.sticky-product-buyed').length);
+        }
+
+        $('.sticky-product-buyed').eq(newRandomStickyProduct).css({
+          transform: 'translateY(0px)'
+        });
+
+        setTimeout(function() {
+          $('.sticky-product-buyed').eq(newRandomStickyProduct).css({
+            transform: 'translateY(150px)'
+          });
+        }, 6500);
+      }
+    }
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Product popups footer",
+    "max_blocks": 30,
+    "settings": [
+      {
+        "type": "header",
+        "content": "Product rotation popup of footer"
+      },
+      {
+        "type": "select",
+        "id": "product_sticky_buyed_iterator",
+        "label": "Iterate each",
+        "options": [
+          { "value": "15000", "label": "15 seconds" },
+          { "value": "30000", "label": "30 seconds" },
+          { "value": "45000", "label": "45 seconds" },
+          { "value": "100000", "label": "1 minute" },
+          { "value": "200000", "label": "2 minutes" },
+          { "value": "500000", "label": "5 minutes" }
+        ],
+        "default": "15000"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "product",
+        "name": "Product",
+        "settings": [
+          {
+            "type": "product",
+            "id": "product_selected",
+            "label": "Product"
+          },
+          {
+            "type": "text",
+            "id": "product_sticky_buyed_country",
+            "label": "Country of the buyer",
+            "info": "eg: LARGS NORTH, Australia"
+          },
+          {
+            "type": "text",
+            "id": "product_sticky_buyed_time",
+            "label": "Time of the product sold",
+            "info": "eg: 15 MINUTES AGO"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

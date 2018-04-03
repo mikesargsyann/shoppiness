@@ -1,5 +1,9 @@
 {
   "current": {
+    "fixed_bar_footer": true,
+    "fixed_bar_footer_text": "Congratulations! You've got free shipping",
+    "fixed_bar_footer_background_color": "",
+    "fixed_bar_footer_font_color": "",
     "color_text": "#3d4246",
     "color_body_text": "#788188",
     "color_sale_text": "#e13c19",
@@ -151,67 +155,13 @@
       },
       "product-template": {
         "type": "product-template",
-        "blocks": {
-          "1522009843610": {
-            "type": "product",
-            "settings": {
-              "product_selected": "fly-cat",
-              "product_sticky_buyed_country": "LARGS NORTH, Australia",
-              "product_sticky_buyed_time": "13 MINUTES AGO"
-            }
-          },
-          "1522009866492": {
-            "type": "product",
-            "settings": {
-              "product_selected": "full-hd-mini-wireless-smart-camera",
-              "product_sticky_buyed_country": "BUENOS AIRES, Argentina",
-              "product_sticky_buyed_time": "2 HOURS AGO"
-            }
-          },
-          "1522009882803": {
-            "type": "product",
-            "settings": {
-              "product_selected": "womens-hot-sweat-body-shaper-tank-top-tummy-fat-burner-slimming-sauna-vest-weight-loss-shapewear-black-no-zip",
-              "product_sticky_buyed_country": "NEW YORK, USA",
-              "product_sticky_buyed_time": "48 MINUTES AGO"
-            }
-          },
-          "1522009905349": {
-            "type": "product",
-            "settings": {
-              "product_selected": "super-wide-angle-mobile-phone-lens",
-              "product_sticky_buyed_country": "GERMANY",
-              "product_sticky_buyed_time": "32 MINUTES AGO"
-            }
-          },
-          "1522009926535": {
-            "type": "product",
-            "settings": {
-              "product_selected": "lululion-waterproof-pu-coating-backpacking-tent-two-doors-double-layer-anti-uv-with-aluminum-rods-for-outdoor-camping-hunting-hiking-with-carry-bag-210x150x110cm",
-              "product_sticky_buyed_country": "PARIS, France",
-              "product_sticky_buyed_time": "3 HOURS AGO"
-            }
-          }
-        },
-        "block_order": [
-          "1522009843610",
-          "1522009866492",
-          "1522009882803",
-          "1522009905349",
-          "1522009926535"
-        ],
         "settings": {
           "image_size": "medium",
           "show_quantity_selector": true,
           "show_variant_labels": true,
           "show_vendor": false,
           "enable_zoom": true,
-          "show_share_buttons": true,
-          "fixed_bar_footer": true,
-          "fixed_bar_footer_text": "Congratulations! You have got free shipping",
-          "fixed_bar_footer_background_color": "",
-          "fixed_bar_footer_font_color": "",
-          "product_sticky_buyed_iterator": "15000"
+          "show_share_buttons": true
         }
       },
       "cart-template": {
@@ -290,6 +240,107 @@
           "related_grid_num": "4",
           "related_grid_row": "1"
         }
+      },
+      "product-popups-footer": {
+        "type": "product-popups-footer",
+        "blocks": {
+          "1522707387277": {
+            "type": "product",
+            "settings": {
+              "product_selected": "super-wide-angle-mobile-phone-lens",
+              "product_sticky_buyed_country": "WACO, Texas",
+              "product_sticky_buyed_time": "32 MINUTES AGO"
+            }
+          },
+          "1522707477233": {
+            "type": "product",
+            "settings": {
+              "product_selected": "full-hd-mini-wireless-smart-camera",
+              "product_sticky_buyed_country": "ATLANTA, Georgia",
+              "product_sticky_buyed_time": "4 MINUTES AGO"
+            }
+          },
+          "1522725586747": {
+            "type": "product",
+            "settings": {
+              "product_selected": "fly-cat",
+              "product_sticky_buyed_country": "CONWAY, Arkansas",
+              "product_sticky_buyed_time": "13 MINUTES AGO"
+            }
+          },
+          "1522725601530": {
+            "type": "product",
+            "settings": {
+              "product_selected": "mini-portable-electronic-scale-weight-luggage-scale-digital-travel-hanging-hook-scale",
+              "product_sticky_buyed_country": "GRENN BAY, Wisconsin",
+              "product_sticky_buyed_time": "10 MINUTES AGO"
+            }
+          },
+          "1522725615783": {
+            "type": "product",
+            "settings": {
+              "product_selected": "womens-hot-sweat-body-shaper-tank-top-tummy-fat-burner-slimming-sauna-vest-weight-loss-shapewear-black-no-zip",
+              "product_sticky_buyed_country": "FAIRFIELD, New York",
+              "product_sticky_buyed_time": "18 MINUTES AGO"
+            }
+          },
+          "1522725630072": {
+            "type": "product",
+            "settings": {
+              "product_selected": "lululion-waterproof-pu-coating-backpacking-tent-two-doors-double-layer-anti-uv-with-aluminum-rods-for-outdoor-camping-hunting-hiking-with-carry-bag-210x150x110cm",
+              "product_sticky_buyed_country": "FRESNO, California",
+              "product_sticky_buyed_time": "3 HOURS AGO"
+            }
+          },
+          "1522725646472": {
+            "type": "product",
+            "settings": {
+              "product_selected": "60-seconds-salad-cutter-bowl-multifunction-easy-fruit-vegetable-cutter-bowl-fast-fresh-salad-slicer-salad-chopper",
+              "product_sticky_buyed_country": "BEND, Oregon",
+              "product_sticky_buyed_time": "16 MINUTES AGO"
+            }
+          },
+          "1522725659839": {
+            "type": "product",
+            "settings": {
+              "product_selected": "turbo-scrub-multi-function-wireless-charging-electric-long-handle-cleaning-brush-household-cleaning-tools",
+              "product_sticky_buyed_country": "HASTINGS, Nebraska",
+              "product_sticky_buyed_time": "1 MINUTES AGO"
+            }
+          }
+        },
+        "block_order": [
+          "1522707387277",
+          "1522707477233",
+          "1522725586747",
+          "1522725601530",
+          "1522725615783",
+          "1522725630072",
+          "1522725646472",
+          "1522725659839"
+        ],
+        "settings": {
+          "product_sticky_buyed_iterator": "15000"
+        }
+      },
+      "product-left-stock": {
+        "type": "product-left-stock",
+        "blocks": {
+          "1522708149852": {
+            "type": "product",
+            "settings": {
+              "product_left_stock_selected": "60-seconds-salad-cutter-bowl-multifunction-easy-fruit-vegetable-cutter-bowl-fast-fresh-salad-slicer-salad-chopper",
+              "product_left_stock_show": true,
+              "product_left_stock_number": "4",
+              "product_left_stock_day": 8,
+              "product_left_stock_hours": 11
+            }
+          }
+        },
+        "block_order": [
+          "1522708149852"
+        ],
+        "settings": {}
       }
     },
     "content_for_index": [

@@ -98,13 +98,13 @@
           {% endif %}
         </div>
       {% endif %}
-      
+
       <div class="product-single__description rte" itemprop="description">
         {{ product.description }}
       </div>
-      
+
       <div id="shopify-product-reviews" class="product-reviews-desktop" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
-      
+
     </div>
 
     <div class="grid__item medium-up--two-fifths">
@@ -146,7 +146,7 @@
             {% endif %}
             <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
           </p>
-          
+
           <div class="extra-descriptive-box" hidden>
             <p>BUY MORE AND SAVE MORE</p>
             <div>
@@ -205,11 +205,15 @@
               </button>
             </div>
           </form>
-          
+
+          <div class="product-left-stock-wrapper">
+
+          </div>
+
           <div class="product-icons grid--full">
             <img src="{{ 'payment-secured.png' | asset_url }}" class="product-icons-description">
           </div>
-         
+
         </div>
 
         {% if section.settings.show_share_buttons %}
@@ -217,7 +221,7 @@
         {% endif %}
       </div>
     </div>
-    
+
     <div class="grid__item product-single__photos medium-up--three-fifths{% if section.settings.image_size == 'full' %} product-single__photos--full{% endif %} hidden-desktop">
       {%- assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image -%}
       {% for image in product.images %}
@@ -280,15 +284,15 @@
           {% endif %}
         </div>
       {% endif %}
-      
+
       <div class="product-single__description rte" itemprop="description">
         {{ product.description }}
       </div>
-      
+
       <div id="shopify-product-reviews" class="product-reviews-desktop" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
-      
+
     </div>
-    
+
   </div>
   <div class="sticky-footer hidden-desktop">
     {% if current_variant.compare_at_price > current_variant.price %}
@@ -321,24 +325,10 @@
     </form>
   </div>
 </div>
-<div>
-{% for block in section.blocks %}
-<div class="sticky-product-buyed">
-  {% assign product_item = all_products[block.settings.product_selected] %}
-  <p>
-    {% for image in product_item.images %}
-      <img src="{{ image.src | img_url }}">
-    {% endfor %}
-    <span>Someone from {{ block.settings.product_sticky_buyed_country }} recently pruchased <a href="{{ product_item.url }}" target="_blank">{{ product_item.title }}</a></span>
-    <span>{{ block.settings.product_sticky_buyed_time }}</span>
-    <input type="hidden" hidden value="{{ section.settings.product_sticky_buyed_iterator }}">
-  </p>
-</div>
-{% endfor %}
-</div>
-{% if section.settings.fixed_bar_footer and section.settings.fixed_bar_footer_text != '' %}
-<div class="free-shippings-bar" style="background-color: {{ section.settings.fixed_bar_footer_background_color }};">
-  <p style="color: {{ section.settings.fixed_bar_footer_font_color }};">{{ section.settings.fixed_bar_footer_text }}</p>
+
+{% if settings.fixed_bar_footer and settings.fixed_bar_footer_text != '' %}
+<div class="free-shippings-bar" style="background-color: {{ settings.fixed_bar_footer_background_color }};">
+  <p style="color: {{ settings.fixed_bar_footer_font_color }};">{{ settings.fixed_bar_footer_text }}</p>
 </div>
 {% endif %}
 
@@ -358,6 +348,7 @@
 {% endunless %}
 
 <script type="text/javascript">
+  {% if current_variant.comparte_at_price %}
   $(document).ready(function() {
     if ($('.product-percentage-discount, .product-percentage-discount-mobile').length > 0) {
       var originalPrice = {{ current_variant.compare_at_price }};
@@ -367,43 +358,12 @@
       $('.product-percentage-discount, .product-percentage-discount-mobile').text(`-${discountPercentage}%`);
     }
   });
-
-  $(document).ready(function() {    
-    if ($('.sticky-product-buyed').length > 0) {
-      var iteratorTime = $('.sticky-product-buyed p input').val();
-      var newRandomStickyProduct = Math.floor(Math.random() * $('.sticky-product-buyed').length);
-      var lastRandomStickyProduct;
-
-      setInterval(function() {
-        iterator();
-      }, iteratorTime);
-
-      function iterator() {
-        newRandomStickyProduct = Math.floor(Math.random() * $('.sticky-product-buyed').length);
-        lastRandomStickyProduct = newRandomStickyProduct;
-
-        if (lastRandomStickyProduct == newRandomStickyProduct) {
-          newRandomStickyProduct = Math.floor(Math.random() * $('.sticky-product-buyed').length);
-        }
-
-        $('.sticky-product-buyed').eq(newRandomStickyProduct).css({
-          transform: 'translateY(0px)'
-        });
-
-        setTimeout(function() {
-          $('.sticky-product-buyed').eq(newRandomStickyProduct).css({
-            transform: 'translateY(150px)'
-          });
-        }, 6500);
-      }
-    }
-  });
+  {% endif %}
 </script>
 
 {% schema %}
   {
     "name": "Product pages",
-    "max_blocks": 12,
     "settings": [
       {
         "type": "select",
@@ -458,74 +418,6 @@
         "id": "show_share_buttons",
         "label": "Show social sharing buttons",
         "default": true
-      },
-      {
-        "type": "header",
-        "content": "Fixed footer bar"
-      },
-      {
-        "type": "checkbox",
-        "id": "fixed_bar_footer",
-        "label": "Show fixed bar on footer",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "fixed_bar_footer_text",
-        "label": "Fixed bar text"
-      },
-      {
-        "type": "color",
-        "id": "fixed_bar_footer_background_color",
-        "label": "Fixed bar background color"
-      },
-      {
-        "type": "color",
-        "id": "fixed_bar_footer_font_color",
-        "label": "Fixed bar font color"
-      },
-      {
-        "type": "header",
-        "content": "Product rotation popup of footer"
-      },
-      {
-        "type": "select",
-        "id": "product_sticky_buyed_iterator",
-        "label": "Iterate each",
-        "options": [
-          { "value": "15000", "label": "15 seconds" },
-          { "value": "30000", "label": "30 seconds" },
-          { "value": "45000", "label": "45 seconds" },
-          { "value": "100000", "label": "1 minute" },
-          { "value": "200000", "label": "2 minutes" },
-          { "value": "500000", "label": "5 minutes" }
-        ],
-        "default": "15000"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "product",
-        "name": "Product selection",
-        "settings": [
-          {
-            "type": "product",
-            "id": "product_selected",
-            "label": "Product"
-          },
-          {
-            "type": "text",
-            "id": "product_sticky_buyed_country",
-            "label": "Country of the buyer",
-            "info": "eg: LARGS NORTH, Australia"
-          },
-          {
-            "type": "text",
-            "id": "product_sticky_buyed_time",
-            "label": "Time of the product sold",
-            "info": "eg: 15 MINUTES AGO"
-          }
-        ]
       }
     ]
   }

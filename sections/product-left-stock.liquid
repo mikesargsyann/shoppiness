@@ -1,0 +1,136 @@
+<div class="product-left-stock-content-wrapper">
+  {% for block in section.blocks %}
+    {% assign product_left_stock = all_products[block.settings.product_left_stock_selected] %}
+    {% assign product_left_stock_show = block.settings.product_left_stock_show %}
+    {% assign product_left_stock_number = block.settings.product_left_stock_number %}
+    {% assign product_left_stock_days = block.settings.product_left_stock_day %}
+    {% assign product_left_stock_hours = block.settings.product_left_stock_hours %}
+    {% assign product_left_stock_minutes = block.settings.product_left_stock_minutes %}
+    {% assign product_left_stock_seconds = block.settings.product_left_stock_seconds %}
+
+    {% if product.id == product_left_stock.id %}
+      {% if product_left_stock_show %}
+      <p class="product_left_stock_number">Hurry! Only <span>{{ product_left_stock_number }}</span> in stock.</p>
+      <p class="product_left_stock_day_display"></p>
+      <p class="product_left_stock_hours_display"></p>
+      <p class="product_left_stock_minutes_display"></p>
+      <p class="product_left_stock_seconds_display"></p>
+      <input type="text" id="product_left_stock_days" value="{{ product_left_stock_days }}" hidden>
+      <input type="text" id="product_left_stock_hours" value="{{ product_left_stock_hours }}" hidden>
+      <input type="text" id="product_left_stock_minutes" value="{{ product_left_stock_minutes }}" hidden>
+      {% endif %}
+    {% endif %}
+
+  {% endfor %}
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    var product_days = $('#product_left_stock_days').val();
+    var product_hours = $('#product_left_stock_hours').val();
+    var product_minutes = $('#product_left_stock_minutes').val();
+    var actualYear = new Date().getFullYear();
+    var actualMonth = new Date().getMonth();
+    var actualDay = new Date();
+    var actualDate = new Date();
+
+    // Set the date we're counting down to
+    var countDownDate = new Date('1 01, 2018 0:00:00');
+    countDownDate.setMonth(actualMonth);
+    countDownDate.setDate(product_days);
+    countDownDate.setHours(product_hours - 1);
+
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+
+      // Get todays date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now an the count down date
+      var distance = countDownDate - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Display the result in the element with id="demo"
+      $('.product_left_stock_day_display').text(days);
+      $('.product_left_stock_hours_display').text(hours);
+      $('.product_left_stock_minutes_display').text(minutes);
+      $('.product_left_stock_seconds_display').text(seconds);
+
+      // If the count down is finished, write some text
+      if (distance < 0) {
+        clearInterval(x);
+        $('.product_left_stock_number').hide();
+        $('.product_left_stock_day_display').hide();
+        $('.product_left_stock_hours_display').hide();
+        $('.product_left_stock_minutes_display').hide();
+        $('.product_left_stock_seconds_display').hide();
+      }
+    }, 1000);
+
+    $('.product-left-stock-content-wrapper').appendTo('.product-left-stock-wrapper');
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Product left stock",
+    "max_blocks": 100,
+    "settings": [
+      {
+        "type": "header",
+        "content": "Select the products and set the stock"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "product",
+        "name": "Product",
+        "settings": [
+          {
+            "type": "product",
+            "id": "product_left_stock_selected",
+            "label": "Product"
+          },
+          {
+            "type": "checkbox",
+            "id": "product_left_stock_show",
+            "label": "Show the stock message",
+            "default": true
+          },
+          {
+            "type": "text",
+            "id": "product_left_stock_number",
+            "label": "Number of stock left",
+            "info": "eg: 4"
+          },
+          {
+            "type": "range",
+            "id": "product_left_stock_day",
+            "min": 0,
+            "max": 40,
+            "step": 1,
+            "unit": "day",
+            "label": "Set the number of the day to be expired.",
+            "info": "eg: we are on the 22 of December and we want to be expired on the 25th, we have to put 25",
+            "default": 1
+          },
+          {
+            "type": "range",
+            "id": "product_left_stock_hours",
+            "min": 0,
+            "max": 23,
+            "step": 1,
+            "unit": "hr",
+            "label": "Set the hours left",
+            "default": 23
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

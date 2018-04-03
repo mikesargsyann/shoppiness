@@ -152,6 +152,11 @@
     </div>
   {% endif %}
 </div>
+{% if settings.fixed_bar_footer and settings.fixed_bar_footer_text != '' %}
+<div class="free-shippings-bar" style="background-color: {{ settings.fixed_bar_footer_background_color }};">
+  <p style="color: {{ settings.fixed_bar_footer_font_color }};">{{ settings.fixed_bar_footer_text }}</p>
+</div>
+{% endif %}
 
 {% schema %}
   {

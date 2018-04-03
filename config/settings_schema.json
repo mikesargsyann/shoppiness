@@ -8,6 +8,32 @@
     "theme_support_url": "https:\/\/support.shopify.com\/"
   },
   {
+    "name": "Fixed bar Product & Card",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "fixed_bar_footer",
+        "label": "Show fixed bar on footer",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "fixed_bar_footer_text",
+        "label": "Fixed bar text"
+      },
+      {
+        "type": "color",
+        "id": "fixed_bar_footer_background_color",
+        "label": "Fixed bar background color"
+      },
+      {
+        "type": "color",
+        "id": "fixed_bar_footer_font_color",
+        "label": "Fixed bar font color"
+      }
+    ]
+  },
+  {
     "name": "Colors",
     "settings": [
       {
