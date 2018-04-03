@@ -11,6 +11,17 @@
     {% if product.id == product_left_stock.id %}
       {% if product_left_stock_show %}
       <p class="product_left_stock_number">Hurry! Only <span>{{ product_left_stock_number }}</span> in stock.</p>
+      <div class="product_left_stock_progress_bar">
+        {% if product_left_stock_number == '1' or product_left_stock_number == '2' or product_left_stock_number == '3' or product_left_stock_number == '4' or product_left_stock_number == '5' or product_left_stock_number == '6'%}
+        <div style="animation-name: super_low_stock;"></div>
+        {% elsif product_left_stock_number == '7' or product_left_stock_number == '8' or product_left_stock_number == '9' or product_left_stock_number == '10' or product_left_stock_number == '11' or product_left_stock_number == '12' %}
+        <div style="animation-name: low_stock;"></div>
+        {% elsif product_left_stock_number == '13' or product_left_stock_number == '14' or product_left_stock_number == '15' or product_left_stock_number == '16' or product_left_stock_number == '17' or product_left_stock_number == '18' or product_left_stock_number == '19' or product_left_stock_number == '20' or product_left_stock_number == '21' or product_left_stock_number == '22' or product_left_stock_number == '23' or product_left_stock_number == '24' or product_left_stock_number == '25' %}
+        <div style="animation-name: med_stock;"></div>
+        {% else %}
+        <div style="animation-name: high_stock;"></div>
+        {% endif %}
+      </div>
       <p class="product_left_stock_day_display"></p>
       <p class="product_left_stock_hours_display"></p>
       <p class="product_left_stock_minutes_display"></p>

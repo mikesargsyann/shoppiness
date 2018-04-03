@@ -23,6 +23,27 @@
     }
   }
 
+  .product_left_stock_progress_bar {
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background: #e9e9e9;
+    position: relative;
+    margin-bottom: 20px;
+
+    div {
+      position: absolute;
+      height: 100%;
+      border-radius: 5px;
+      background-color: red;
+      animation-duration: 4s;
+      animation-timing-function: linear;
+      animation-direction: reverse;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+    }
+  }
+
   .product_left_stock_day_display,
   .product_left_stock_hours_display,
   .product_left_stock_minutes_display,
@@ -80,6 +101,46 @@
     }
   }
 
+}
+
+@keyframes super_low_stock {
+  100% {
+    width: 100%;
+  }
+
+  0% {
+    width: 18%;
+  }
+}
+
+@keyframes low_stock {
+  100% {
+    width: 100%;
+  }
+
+  0% {
+    width: 27%;
+  }
+}
+
+@keyframes med_stock {
+  100% {
+    width: 100%;
+  }
+
+  0% {
+    width: 37%;
+  }
+}
+
+@keyframes high_stock {
+  100% {
+    width: 100%;
+  }
+
+  0% {
+    width: 68%;
+  }
 }
 
 .offers {
