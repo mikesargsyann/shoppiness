@@ -46,7 +46,7 @@
     var actualDate = new Date();
 
     // Set the date we're counting down to
-    var countDownDate = new Date('1 01, 2018 0:00:00');
+    var countDownDate = new Date('2018/01/01 02:10:30');
     countDownDate.setMonth(actualMonth);
     countDownDate.setDate(product_days);
     countDownDate.setHours(product_hours - 1);
@@ -73,13 +73,16 @@
       $('.product_left_stock_seconds_display').text(seconds);
 
       // If the count down is finished, write some text
-      if (distance < 0) {
+      if (distance > 0) {
         clearInterval(x);
-        $('.product_left_stock_number').hide();
-        $('.product_left_stock_day_display').hide();
-        $('.product_left_stock_hours_display').hide();
-        $('.product_left_stock_minutes_display').hide();
-        $('.product_left_stock_seconds_display').hide();
+        $('.product_left_stock_progress_bar').css('display','block');
+        $('.product_left_stock_number').css('display','block');
+        $('.product_left_stock_day_display').css('display','inline-block');
+        $('.product_left_stock_hours_display').css('display','inline-block');
+        $('.product_left_stock_minutes_display').css('display','inline-block');
+        $('.product_left_stock_seconds_display').css('display','inline-block');
+      } else if (distance < 0 ) {
+        clearInterval(x);
       }
     }, 1000);
 
