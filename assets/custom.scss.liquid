@@ -11,6 +11,16 @@
 }
 
 // Product page
+.product-single__photos {
+  &.hidden-desktop {
+    .product-single__photo-wrapper {
+      width: 65% !important;
+      max-width: 250px !important;
+      float: right;
+    }
+  }
+}
+
 .product-left-stock-content-wrapper {
 
   .product_left_stock_number {
@@ -155,10 +165,18 @@
 
 .product-price__price {
   padding-left: 0;
+
+  @media only screen and (max-width: 767px) {
+    float: right;
+  }
 }
 
 .product-compare-price {
-  display: inline-block;
+  @media only screen and (max-width: 767px) {
+    text-align: right;
+    margin: 0;
+    display: block;
+  }
 }
 
 .product-percentage-discount {
@@ -234,7 +252,7 @@
   box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
   transition: all 1s ease;
   z-index: 100;
-  transform: translateY(150px);
+  transform: translateY(400px);
 
   @media only screen and (max-width: 767px) {
     max-width: 300px;
@@ -322,6 +340,10 @@
   max-width: 350px;
   margin: 0 auto 30px 0;
 
+  @media only screen and (max-width: 767px) {
+    margin: 0 auto 30px auto;
+  }
+
   > p {
     color: white;
     font-size: 16px;
@@ -339,12 +361,13 @@
 
 .spr-badge {
   position: absolute;
-  top: 0;
+  top: 2px;
   right: 0;
-  font-size: 16px;
+  font-size: 14px;
 
   @media only screen and (max-width: 767px) {
     font-size: 12px;
+    position: relative;
   }
 }
 
@@ -367,6 +390,12 @@
   position: relative;
 }
 
+.product-single__title {
+  @media only screen and (max-width: 767px) {
+    margin-bottom: 20px;
+  }
+}
+
 .thumbnails-wrapper {
   position: absolute;
   top: -30px;
@@ -376,15 +405,25 @@
   	transform: translateX(-80px);
   }
 
-   @media only screen and (max-width: 1250px) {
-     position: relative;
-     top: 0;
-     transform: none;
+  @media only screen and (max-width: 1250px) {
+    position: relative;
+    top: 0;
+    transform: none;
+  }
+
+  @media only screen and (max-width: 767px) {
+    width: auto;
+    margin: 0;
+    display: inline-block;
   }
 
   ul.product-single__thumbnails {
 
-    > li {
+    @media only screen and (max-width: 767px) {
+      width: 75px;
+    }
+
+    li {
       float: none;
       width: 50%;
 
@@ -395,6 +434,10 @@
       @media only screen and (max-width: 1250px) {
         float: right;
         width: 25%;
+      }
+
+      @media only screen and (max-width: 767px) {
+        float: none !important;
       }
     }
   }
