@@ -66,7 +66,7 @@
           "main_linklist": "main-menu",
           "message": true,
           "home_page_only": true,
-          "message_text": "Free shipping and returns on all U.S. orders!",
+          "message_text": "Free shipping and returns on all orders!",
           "message_link": "",
           "color_bg": "#e13c19",
           "color_text": "#ffffff"
@@ -244,6 +244,30 @@
       "product-popups-footer": {
         "type": "product-popups-footer",
         "blocks": {
+          "1522725646472": {
+            "type": "product",
+            "settings": {
+              "product_selected": "60-seconds-salad-cutter-bowl-multifunction-easy-fruit-vegetable-cutter-bowl-fast-fresh-salad-slicer-salad-chopper",
+              "product_sticky_buyed_country": "BEND, Oregon",
+              "product_sticky_buyed_time": "16 MINUTES AGO"
+            }
+          },
+          "1522725586747": {
+            "type": "product",
+            "settings": {
+              "product_selected": "fly-cat",
+              "product_sticky_buyed_country": "CONWAY, Arkansas",
+              "product_sticky_buyed_time": "13 MINUTES AGO"
+            }
+          },
+          "1522725659839": {
+            "type": "product",
+            "settings": {
+              "product_selected": "turbo-scrub-multi-function-wireless-charging-electric-long-handle-cleaning-brush-household-cleaning-tools",
+              "product_sticky_buyed_country": "HASTINGS, Nebraska",
+              "product_sticky_buyed_time": "1 MINUTES AGO"
+            }
+          },
           "1522707387277": {
             "type": "product",
             "settings": {
@@ -258,14 +282,6 @@
               "product_selected": "full-hd-mini-wireless-smart-camera",
               "product_sticky_buyed_country": "ATLANTA, Georgia",
               "product_sticky_buyed_time": "4 MINUTES AGO"
-            }
-          },
-          "1522725586747": {
-            "type": "product",
-            "settings": {
-              "product_selected": "fly-cat",
-              "product_sticky_buyed_country": "CONWAY, Arkansas",
-              "product_sticky_buyed_time": "13 MINUTES AGO"
             }
           },
           "1522725601530": {
@@ -291,33 +307,17 @@
               "product_sticky_buyed_country": "FRESNO, California",
               "product_sticky_buyed_time": "3 HOURS AGO"
             }
-          },
-          "1522725646472": {
-            "type": "product",
-            "settings": {
-              "product_selected": "60-seconds-salad-cutter-bowl-multifunction-easy-fruit-vegetable-cutter-bowl-fast-fresh-salad-slicer-salad-chopper",
-              "product_sticky_buyed_country": "BEND, Oregon",
-              "product_sticky_buyed_time": "16 MINUTES AGO"
-            }
-          },
-          "1522725659839": {
-            "type": "product",
-            "settings": {
-              "product_selected": "turbo-scrub-multi-function-wireless-charging-electric-long-handle-cleaning-brush-household-cleaning-tools",
-              "product_sticky_buyed_country": "HASTINGS, Nebraska",
-              "product_sticky_buyed_time": "1 MINUTES AGO"
-            }
           }
         },
         "block_order": [
+          "1522725646472",
+          "1522725586747",
+          "1522725659839",
           "1522707387277",
           "1522707477233",
-          "1522725586747",
           "1522725601530",
           "1522725615783",
-          "1522725630072",
-          "1522725646472",
-          "1522725659839"
+          "1522725630072"
         ],
         "settings": {
           "product_sticky_buyed_iterator": "15000"
@@ -329,11 +329,11 @@
           "1522708149852": {
             "type": "product",
             "settings": {
-              "product_left_stock_selected": "3-in-1-avocado-slicer",
+              "product_left_stock_selected": "ice-bucket-make-more-ice",
               "product_left_stock_show": true,
               "product_left_stock_number": "4",
-              "product_left_stock_day": 23,
-              "product_left_stock_hours": 14
+              "product_left_stock_day": 10,
+              "product_left_stock_hours": 10
             }
           }
         },

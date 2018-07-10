@@ -90,6 +90,7 @@
                 <div class="cart__qty">
                   <label for="updates_{{ item.key }}" class="cart__qty-label">{{ 'cart.label.quantity' | t }}</label>
                   <input class="cart__qty-input" type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0" pattern="[0-9]*">
+                  <input type="submit" name="update" class="btn btn--secondary cart__update small--hide" value="{{ 'cart.general.update' | t }}">
                 </div>
                 <input type="submit" name="update" class="btn btn--small cart__update medium-up--hide" value="{{ 'cart.general.update' | t }}">
               </td>
@@ -131,12 +132,32 @@
               </div>
             {% endif %}
             <div class="cart__shipping">{{ 'cart.general.shipping_at_checkout' | t }}</div>
-            <a href="collections/all" class="btn btn--secondary cart__update cart__continue--large small--hide" >{{ 'cart.general.continue_shopping' | t }}</a>
-            <input type="submit" name="update" class="btn btn--secondary cart__update cart__update--large small--hide" value="{{ 'cart.general.update' | t }}">
-            <input type="submit" name="checkout" class="btn btn--small-wide" value="{{ 'cart.general.checkout' | t }}">
+            <!-- <a href="collections/all" class="btn btn--secondary cart__update cart__continue--large small--hide" >{{ 'cart.general.continue_shopping' | t }}</a> -->
+            <!-- <input type="submit" name="checkout" class="btn btn--small-wide" value="{{ 'cart.general.checkout' | t }}"> -->
+            <div class="checkout-wrapper">
+                <div class="grid__item small--hide medium-up--one-third">
+                    <img src="{{ 'secure-logos.jpeg' | asset_url }}" alt="" class="secure-logos">
+                </div>
+                <div class="grid__item small--hide medium-up--one-third">
+                    <small>Accepted methods of payment</small>
+                    <img src="{{ 'credit-cards-logos.png' | asset_url }}" alt="" class="credit-cards-logos">
+                </div>
+                <div class="grid__item medium-up--one-third">
+                    <input type="submit" name="checkout" class="btn btn--big" value="BUY NOW">
+                </div>
+            </div>
             {% if additional_checkout_buttons %}
-              <div class="additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</div>
+            <div class="additional-checkout-buttons"><p>or pay with </p>{{ content_for_additional_checkout_buttons }}</div>
             {% endif %}
+            <div class="checkout-wrapper">
+                <div class="grid__item medium-up--hide">
+                    <img src="{{ 'secure-logos.jpeg' | asset_url }}" alt="" class="secure-logos">
+                </div>
+                <div class="grid__item medium-up--hide">
+                    <p>Accepted methods of payment</p>
+                    <img src="{{ 'credit-cards-logos.png' | asset_url }}" alt="" class="credit-cards-logos">
+                </div>
+            <div class="checkout-wrapper">
           </div>
         </div>
       </footer>
@@ -156,6 +177,12 @@
 <div class="free-shippings-bar" style="background-color: {{ settings.fixed_bar_footer_background_color }};">
   <p style="color: {{ settings.fixed_bar_footer_font_color }};">{{ settings.fixed_bar_footer_text }}</p>
 </div>
+{% endif %}
+
+{% if settings.fixed_bar_footer and settings.fixed_bar_footer_text != '' %}
+<script type="text/javascript">
+    $('#shopify-section-header').css('margin-top','35px');
+</script>
 {% endif %}
 
 {% schema %}

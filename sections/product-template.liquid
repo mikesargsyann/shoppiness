@@ -333,9 +333,13 @@
 </div>
 
 {% if settings.fixed_bar_footer and settings.fixed_bar_footer_text != '' %}
-<div class="free-shippings-bar" style="background-color: {{ settings.fixed_bar_footer_background_color }};">
-  <p style="color: {{ settings.fixed_bar_footer_font_color }};">{{ settings.fixed_bar_footer_text }}</p>
-</div>
+<script type="text/javascript">
+    $('#shopify-section-header').before(`
+        <div class="free-shippings-bar" style="background-color: {{ settings.fixed_bar_background_color }};">
+          <p style="color: {{ settings.fixed_bar_font_color }};">{{ settings.fixed_bar_text }}</p>
+        </div>
+    `).css('margin-top','35px');
+</script>
 {% endif %}
 
 {% if collection %}
